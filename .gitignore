@@ -1,0 +1,22 @@
+# Dependency directories
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# SQLite Database
+backend/database.sqlite
+
+# System files
+.DS_Store
+Thumbs.db
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn

@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;700&family=JetBrains+Mono&display=swap');
+
+:root {
+  --primary: #00f5ff; /* ELECTRIC CYAN */
+  --secondary: #00ff7f; /* NEON GREEN */
+  --critical: #ff1744; /* VIBRANT RED */
+  --bg: #020202; 
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-main: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg);
+  background-image: 
+    radial-gradient(circle at 50% 0%, #001f1f 0%, transparent 60%),
+    linear-gradient(rgba(0, 245, 255, 0.04) 1px, transparent 1px), 
+    linear-gradient(90deg, rgba(0, 245, 255, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 60px 60px, 60px 60px;
+  color: var(--text-main);
+}
+
+.App { padding: 40px; max-width: 1500px; margin: 0 auto; }
+
+.navbar {
+  display: flex; justify-content: center; margin-bottom: 50px;
+  background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(40px);
+  border: 1px solid var(--glass-border); padding: 25px; border-radius: 24px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.8);
+}
+
+.logo-brand {
+    font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 2.2rem;
+    background: linear-gradient(135deg, #fff 0%, var(--primary) 50%, #777 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 10px;
+}
+
+.siren-icon-blink {
+    animation: siren-strobe 0.15s steps(2, start) infinite !important;
+}
+
+@keyframes siren-strobe {
+    0% { color: #ff0000; filter: drop-shadow(0 0 25px #ff0000); }
+    100% { color: #0000ff; filter: drop-shadow(0 0 25px #0000ff); }
+}
+
+.main-content { display: grid; grid-template-columns: 1fr 380px; gap: 60px; }
+
+.title { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 3.2rem; margin-bottom: 5px; color: #fff; text-shadow: 0 0 30px rgba(0, 245, 255, 0.3); }
+.subtitle { color: var(--secondary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 5px; }
+
+/* 🏦 CYBER-NODE SIDEBAR SYSTEM */
+.hospitals-sidebar {
+    background: rgba(0, 0, 0, 0.2); 
+    padding: 10px; 
+    border-left: 1px solid var(--glass-border);
+}
+
+.sidebar-title-static {
+    font-family: 'Orbitron', sans-serif; font-weight: 700; color: #fff !important;
+    font-size: 0.9rem; letter-spacing: 3px; border-left: 5px solid var(--primary);
+    padding-left: 20px; text-transform: uppercase; margin-bottom: 30px;
+}
+
+.hosp-item {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 12px;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.hosp-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--primary);
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(0, 245, 255, 0.15);
+}
+
+.hosp-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+    display: block;
+    letter-spacing: 0.5px;
+}
+
+.hosp-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.crit-badge {
+    background: var(--critical);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 3px 12px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    box-shadow: 0 0 15px rgba(255, 23, 68, 0.4);
+}
+
+.gen-badge {
+    background: rgba(255,255,255,0.08);
+    color: #aaa;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.availability {
+    font-size: 0.85rem;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 🧪 CUSTOM PREMIUM SELECT */
+.custom-select-trigger {
+    background: var(--glass); border: 1px solid var(--glass-border);
+    padding: 20px 25px; border-radius: 18px; color: #fff; font-weight: 700;
+}
+
+.custom-select-trigger:hover { border-color: var(--primary); background: rgba(255,255,255,0.05); }
+
+.custom-select-options {
+    background: rgba(5, 5, 5, 0.98); backdrop-filter: blur(50px);
+    border: 1px solid var(--primary); border-radius: 20px;
+}
+
+.custom-option:hover { background: rgba(0, 245, 255, 0.1); color: var(--primary); }
+
+.emergency-btn {
+    background: #fff; color: #000; border-radius: 18px; padding: 25px;
+}
+
+.emergency-btn:hover { background: var(--primary); box-shadow: 0 15px 50px rgba(0, 245, 255, 0.6); }
+
+/* 🧠 MISSION LOGS */
+.mission-logs {
+    background: rgba(0,0,0,0.6); border: 1px solid var(--glass-border);
+    border-radius: 20px; padding: 20px; color: var(--secondary);
+}
+
+.badge-countdown { font-family: 'Orbitron', sans-serif; font-size: 2.4rem; color: #fff; font-weight: 900; }
+
+.status-banner { background: var(--critical); border-radius: 20px; font-family: 'Orbitron', sans-serif; }
+
+.card { background: var(--glass); border-radius: 30px; border: 1px solid var(--glass-border); }
+
+@media (max-width: 1000px) { .main-content { grid-template-columns: 1fr; } }
