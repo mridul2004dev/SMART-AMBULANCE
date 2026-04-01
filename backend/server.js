@@ -12,9 +12,17 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Routes
 const emergencyRoutes = require('./routes/emergencyRoutes');
+const path = require('path');
 app.use('/api', emergencyRoutes);
+
+// Static file serving for Frontend (Production)
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/dist')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+    });
+}
 
 // Database Sync and Seeding
 sequelize.sync({ force: true }) // REBUILD FOR MAP UPGRADE
@@ -56,9 +64,10 @@ sequelize.sync({ force: true }) // REBUILD FOR MAP UPGRADE
     });
 
 // Start Server
-if (process.env.NODE_ENV !== 'production') {
+// Start Server
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
     app.listen(PORT, () => {
-        console.log(`🚀 Server running on http://localhost:${PORT}`);
+        console.log(`🚀 Server running on port ${PORT}`);
     });
 }
 

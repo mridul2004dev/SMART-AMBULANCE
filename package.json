@@ -5,7 +5,8 @@
   "scripts": {
     "build:client": "cd client && npm install && npm run build",
     "build:backend": "cd backend && npm install",
-    "vercel-build": "npm run build:client"
+    "vercel-build": "npm run build:client",
+    "start": "node backend/server.js"
   },
   "dependencies": {
     "cors": "^2.8.6",
