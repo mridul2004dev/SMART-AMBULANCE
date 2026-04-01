@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import './App.css';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = window.location.origin + '/api';
 
 // --- CUSTOM PREMIUM DROPDOWN ---
 const CustomSelect = ({ value, onChange, options }) => {

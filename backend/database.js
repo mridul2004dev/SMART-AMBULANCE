@@ -4,7 +4,7 @@ const path = require('path');
 // Initialize SQLite Database
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: path.join(__dirname, 'database.sqlite'),
+  storage: process.env.VERCEL ? ':memory:' : path.join(__dirname, 'database.sqlite'),
   logging: false
 });
 
